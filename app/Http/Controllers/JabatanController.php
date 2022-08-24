@@ -41,14 +41,14 @@ class JabatanController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         $this->validate($request, [
             'jabatan' => 'required'
         ]);
 
+        $jabatan = Jabatan::where('slug', $slug)->first();
         $slug = Str::slug($request->jabatan, '-');
-        $jabatan = Jabatan::findOrFail($id);
         $jabatan->update([
             'jabatan' => $request->input('jabatan'),
             'slug' => $slug
@@ -63,21 +63,21 @@ class JabatanController extends Controller
         }
     }
 
-    public function edit(Request $request, $id){
-
-        $jabatan = Jabatan::findOrFail($id);
+    public function edit($slug){
+        
+        $jabatan = Jabatan::where('slug', $slug)->first();   
         return view('jabatan/edit', ['jabatan' => $jabatan]);
     }
 
-    public function delete($id){
+    public function delete($slug){
 
-        $jabatan = Jabatan::findOrFail($id);
+        $jabatan = Jabatan::where('slug', $slug)->first();
         return view('jabatan/delete', ['jabatan' => $jabatan]);
     }
 
-    public function destroy($id){
+    public function destroy($slug){
 
-        $jabatan = Jabatan::findOrFail($id);
+        $jabatan = Jabatan::where('slug', $slug)->first();
         $jabatan->delete();
 
         return redirect('/admin/jabatan')->with(['status' => 'Data Berhasil Dihapus!']);

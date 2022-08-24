@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BobotNilai extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['keterangan','slug','minNilai','grade'];
 }

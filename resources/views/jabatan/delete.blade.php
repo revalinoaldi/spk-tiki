@@ -36,7 +36,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/jabatan/delete/{{ $jabatan->id }}" method="POST">
+              <form action="/admin/jabatan/delete/{{ $jabatan->slug }}" method="POST">
                 @csrf
                 @method('delete')
                 <div class="card-body">

@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -10,13 +9,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Data Jabatan</h1>
+            <h1>Input Data Bobot Nilai</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="/admin/jabatan">Jabatan</a></li>
-              <li class="breadcrumb-item active">Edit Form</li>
+              <li class="breadcrumb-item"><a href="/admin/bobot-nilai">Bobot Nilai</a></li>
+              <li class="breadcrumb-item active">Input Form</li>
             </ol>
           </div>
         </div>
@@ -32,23 +31,26 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Form</h3>
+                <h3 class="card-title">Input Form</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/jabatan/{{ $jabatan->slug }}" method="POST">
+              <form action="/admin/bobot-nilai/" method="POST">
                 @csrf
-                @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Jabatan</label>
-                    <input type="text" name="jabatan" class="form-control" id="exampleInputEmail1" placeholder="Enter Nama Jabatan" value="{{ $jabatan->jabatan }}">
+                    <label for="InputKeterangan">Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control" id="InputKeterangan" placeholder="Enter Keterangan">
+                    <label for="InputMinNilai">Minimal Nilai</label>
+                    <input type="number" name="minNilai" class="form-control" id="InputMinNilai" placeholder="Enter Minimal Nilai">
+                    <label for="InputGrade">Grade</label>
+                    <input type="text" name="grade" class="form-control" id="InputGrade" placeholder="Enter Grade">
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Edit</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </form>
             </div>

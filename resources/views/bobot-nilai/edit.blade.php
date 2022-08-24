@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Data Jabatan</h1>
+            <h1>Edit Data Bobot Nilai</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="/admin/jabatan">Jabatan</a></li>
+              <li class="breadcrumb-item"><a href="/admin/bobot-nilai">Bobot Nilai</a></li>
               <li class="breadcrumb-item active">Edit Form</li>
             </ol>
           </div>
@@ -36,13 +36,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/jabatan/{{ $jabatan->slug }}" method="POST">
+              <form action="/admin/bobot-nilai/{{ $bobotnilai->slug }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Jabatan</label>
-                    <input type="text" name="jabatan" class="form-control" id="exampleInputEmail1" placeholder="Enter Nama Jabatan" value="{{ $jabatan->jabatan }}">
+                    <label for="InputKeterangan">Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control" id="InputKeterangan" placeholder="Enter Keterangan" value="{{ $bobotnilai->keterangan }}">
+                    <label for="InputMinNilai">Minimal Nilai</label>
+                    <input type="number" name="minNilai" class="form-control" id="InputMinNilai" placeholder="Enter Minimal Nilai" value="{{ $bobotnilai->minNilai }}">
+                    <label for="InputGrade">Grade</label>
+                    <input type="text" name="grade" class="form-control" id="InputGrade" placeholder="Enter Grade" value="{{ $bobotnilai->grade }}">
                   </div>
                 </div>
                 <!-- /.card-body -->

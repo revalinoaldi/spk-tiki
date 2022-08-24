@@ -10,13 +10,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Edit Data Jabatan</h1>
+            <h1>Delete Data Jabatan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="/admin/jabatan">Jabatan</a></li>
-              <li class="breadcrumb-item active">Edit Form</li>
+              <li class="breadcrumb-item"><a href="/admin/bobot-nilai">Bobot Nilai</a></li>
+              <li class="breadcrumb-item active">Delete Data</li>
             </ol>
           </div>
         </div>
@@ -32,23 +32,23 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Form</h3>
+                <h3 class="card-title">Delete Data</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/jabatan/{{ $jabatan->slug }}" method="POST">
+              <form action="/admin/bobot-nilai/delete/{{ $bobotnilai->slug }}" method="POST">
                 @csrf
-                @method('PUT')
+                @method('delete')
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Jabatan</label>
-                    <input type="text" name="jabatan" class="form-control" id="exampleInputEmail1" placeholder="Enter Nama Jabatan" value="{{ $jabatan->jabatan }}">
+                    <h3>Apakah anda yakin akan menghapus data : {{ $bobotnilai->keterangan }}(Grade : {{ $bobotnilai->grade }}) ?</h3>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Edit</button>
+                  <button type="submit" class="btn btn-danger">Hapus</button>
+                  <a href="/admin/bobot-nilai"  class="btn btn-primary">Kembali</a>
                 </div>
               </form>
             </div>
