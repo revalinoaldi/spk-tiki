@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BobotNilaiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\UserController;
 use App\Models\BobotNilai;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,13 @@ Route::get('/admin/bobot-nilai/edit/{slug}', [BobotNilaiController::class, 'edit
 Route::put('/admin/bobot-nilai/{slug}', [BobotNilaiController::class, 'update']);
 Route::get('/admin/bobot-nilai/delete/{slug}', [BobotNilaiController::class, 'delete']);
 Route::delete('/admin/bobot-nilai/delete/{slug}', [BobotNilaiController::class, 'destroy']);
+
+//Routes for User
+Route::get('/admin/user', [UserController::class, 'index']);
+Route::get('/admin/user/input', [UserController::class, 'input']);
+Route::post('/admin/user/', [UserController::class, 'store']);
+Route::get('/admin/user/detail/{username}', [UserController::class, 'detail']);
+Route::get('/admin/user/edit/{username}', [UserController::class, 'edit']);
+Route::put('/admin/user/{username}', [UserController::class, 'update']);
+Route::get('/admin/user/delete/{username}', [UserController::class, 'delete']);
+Route::delete('/admin/user/delete/{username}', [UserController::class, 'destroy']);

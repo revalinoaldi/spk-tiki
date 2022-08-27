@@ -16,8 +16,7 @@ class BobotNilaiController extends Controller
 
     public function input(){
 
-        $bobotnilai = BobotNilai::all();
-        return view('bobot-nilai/create', ['bobotnilaiList' => $bobotnilai]);
+        return view('bobot-nilai/create');
     }
     
     public function store(Request $request)

@@ -16,8 +16,7 @@ class JabatanController extends Controller
 
     public function input(){
 
-        $jabatan = Jabatan::all();
-        return view('jabatan/create', ['jabatanList' => $jabatan]);
+        return view('jabatan/create');
     }
     
     public function store(Request $request)
