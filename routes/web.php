@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BobotNilaiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\KriteriaNilaiController;
 use App\Http\Controllers\UserController;
 use App\Models\BobotNilai;
 use Illuminate\Support\Facades\Route;
@@ -53,3 +54,12 @@ Route::get('/admin/user/edit/{username}', [UserController::class, 'edit']);
 Route::put('/admin/user/{username}', [UserController::class, 'update']);
 Route::get('/admin/user/delete/{username}', [UserController::class, 'delete']);
 Route::delete('/admin/user/delete/{username}', [UserController::class, 'destroy']);
+
+//Routes for Kriteria Nilai
+Route::get('/admin/kriteria-nilai', [KriteriaNilaiController::class, 'index']);
+Route::get('/admin/kriteria-nilai/input', [KriteriaNilaiController::class, 'input']);
+Route::post('/admin/kriteria-nilai/', [KriteriaNilaiController::class, 'store']);
+Route::get('/admin/kriteria-nilai/edit/{slug}', [KriteriaNilaiController::class, 'edit']);
+Route::put('/admin/kriteria-nilai/{slug}', [KriteriaNilaiController::class, 'update']);
+Route::get('/admin/kriteria-nilai/delete/{slug}', [KriteriaNilaiController::class, 'delete']);
+Route::delete('/admin/kriteria-nilai/delete/{slug}', [KriteriaNilaiController::class, 'destroy']);

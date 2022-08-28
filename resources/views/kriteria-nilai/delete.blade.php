@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Delete Data Bobot Nilai</h1>
+            <h1>Delete Data Kriteria Nilai</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="/admin/bobot-nilai">Bobot Nilai</a></li>
+              <li class="breadcrumb-item"><a href="/admin/kriteria-nilai">Kriteria Nilai</a></li>
               <li class="breadcrumb-item active">Delete Data</li>
             </ol>
           </div>
@@ -36,19 +36,19 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="/admin/bobot-nilai/delete/{{ $bobotnilai->slug }}" method="POST">
+              <form action="/admin/kriteria-nilai/delete/{{ $kriterianilai->slug }}" method="POST">
                 @csrf
                 @method('delete')
                 <div class="card-body">
                   <div class="form-group">
-                    <h3>Apakah anda yakin akan menghapus data : {{ $bobotnilai->keterangan }}(Grade : {{ $bobotnilai->grade }}) ?</h3>
+                    <h3>Apakah anda yakin akan menghapus data : {{ $kriterianilai->keterangan }}(Kode : {{ $kriterianilai->kode }}) ?</h3>
                   </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-danger">Hapus</button>
-                  <a href="/admin/bobot-nilai"  class="btn btn-primary">Kembali</a>
+                  <a href="/admin/kriteria-nilai"  class="btn btn-primary">Kembali</a>
                 </div>
               </form>
             </div>
