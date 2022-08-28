@@ -3,8 +3,8 @@
 use App\Http\Controllers\BobotNilaiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KriteriaNilaiController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\UserController;
-use App\Models\BobotNilai;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,3 +63,12 @@ Route::get('/admin/kriteria-nilai/edit/{slug}', [KriteriaNilaiController::class,
 Route::put('/admin/kriteria-nilai/{slug}', [KriteriaNilaiController::class, 'update']);
 Route::get('/admin/kriteria-nilai/delete/{slug}', [KriteriaNilaiController::class, 'delete']);
 Route::delete('/admin/kriteria-nilai/delete/{slug}', [KriteriaNilaiController::class, 'destroy']);
+
+//Routes for Penilaian
+Route::get('/admin/penilaian', [PenilaianController::class, 'index']);
+Route::get('/admin/penilaian/input', [PenilaianController::class, 'input']);
+Route::post('/admin/penilaian/', [PenilaianController::class, 'store']);
+Route::get('/admin/penilaian/edit/{kode_penilaian}', [PenilaianController::class, 'edit']);
+Route::put('/admin/penilaian/{kode_penilaian}', [PenilaianController::class, 'update']);
+Route::get('/admin/penilaian/delete/{kode_penilaian}', [PenilaianController::class, 'delete']);
+Route::delete('/admin/penilaian/delete/{kode_penilaian}', [PenilaianController::class, 'destroy']);
