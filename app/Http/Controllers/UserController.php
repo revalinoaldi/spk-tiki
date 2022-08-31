@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use App\Models\User;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -48,7 +48,7 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'alamat' => $request->input('alamat'),
             'no_telp' => $request->input('no_telp'),
-            'password' => $request->input('password'),
+            'password' => Hash::make($request->input('password')),
             'jabatan_id' => $request->input('jabatan'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
             'status_karyawan' => $request->input('status_karyawan'),
@@ -86,7 +86,7 @@ class UserController extends Controller
             'email' => $request->input('email'),
             'alamat' => $request->input('alamat'),
             'no_telp' => $request->input('no_telp'),
-            'password' => $request->input('password'),
+            'password' => Hash::make($request->input('password')),
             'jabatan_id' => $request->input('jabatan'),
             'jenis_kelamin' => $request->input('jenis_kelamin'),
             'status_karyawan' => $request->input('status_karyawan'),
