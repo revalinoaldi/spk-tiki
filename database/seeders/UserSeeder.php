@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -22,13 +23,31 @@ class UserSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $data = [
-            ['nama_user' => 'Farhan Aldiansyah', 'username' => 'farhanaldi', 'email' => 'farhanaldi@gmail.com',
-            'alamat' => 'Bekasi','no_telp' => '8159878369','password' => 'passwordhint','jabatan_id' => 2,
-            'jenis_kelamin' => 'Laki-Laki','status_karyawan' => '1','nik' => 'hit_nik'],
-            ['nama_user' => 'Nia Dwi Lestari', 'username' => 'niadwils', 'email' => 'niadwils@gmail.com',
-            'alamat' => 'Bekasi','no_telp' => '8159878369','password' => 'passwordhint','jabatan_id' => 2,
-            'jenis_kelamin' => 'Perempuan','status_karyawan' => '0','nik' => 'hit_nik']
-            
+            [
+                'nama_user' => 'Farhan Aldiansyah',
+                'username' => 'farhanaldi',
+                'email' => 'farhanaldi@gmail.com',
+                'alamat' => 'Bekasi',
+                'no_telp' => '8159878369',
+                'password' => Hash::make('password'),
+                'jabatan_id' => 2,
+                'jenis_kelamin' => 'Laki-Laki',
+                'status_karyawan' => '1',
+                'nik' => 'hit_nik'
+            ],
+            [
+                'nama_user' => 'Nia Dwi Lestari',
+                'username' => 'niadwils',
+                'email' => 'niadwils@gmail.com',
+                'alamat' => 'Bekasi',
+                'no_telp' => '8159878369',
+                'password' => Hash::make('password'),
+                'jabatan_id' => 2,
+                'jenis_kelamin' => 'Perempuan',
+                'status_karyawan' => '0',
+                'nik' => 'hit_nik'
+            ]
+
         ];
         foreach ($data as $value){
             User::insert([
@@ -44,7 +63,7 @@ class UserSeeder extends Seeder
                 'jenis_kelamin' => $value['jenis_kelamin'],
                 'status_karyawan' => $value['status_karyawan'],
                 'nik' => $value['nik']
-    
+
             ]);
         }
     }
