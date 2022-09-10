@@ -9,5 +9,5 @@ class Jabatan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['jabatan','slug'];
+    protected $guarded = ['id'];
 }

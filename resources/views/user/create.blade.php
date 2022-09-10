@@ -39,6 +39,8 @@
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
+                    <label for="InputNIK">NIK</label>
+                    <input type="text" name="nik" class="form-control" id="InputNIK" placeholder="Enter NIK">
                     <label for="InputNamaUser">Nama User</label>
                     <input type="text" name="nama_user" class="form-control" id="InputNamaUser" placeholder="Enter Nama User">
                     <label for="InputUsername">Username</label>
@@ -79,8 +81,7 @@
                         <option value="0">Tidak Aktif</option>
                       </select>
                     </div>
-                    <label for="InputNIK">NIK</label>
-                    <input type="text" name="nik" class="form-control" id="InputNIK" placeholder="Enter NIK">
+
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -94,7 +95,7 @@
 
           </div>
           <!--/.col (left) -->
-          
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

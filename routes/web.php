@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\BobotNilaiController;
+use App\Http\Controllers\DetailPenilaianController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KriteriaNilaiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\UserController;
+use App\Models\DetailPenilaian;
+use App\Models\KriteriaNilai;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +30,12 @@ Route::post('/logout',[LoginController::class,'logout'])->middleware('auth');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/admin', function () {
-        return view('layouts/home');
+        $data = [
+            'countKaryawan' => User::where('jabatan_id', 4)->count(),
+            'countPenilaian' => DetailPenilaian::count(),
+            'countKriteria' => KriteriaNilai::count()
+        ];
+        return view('layouts/home', $data);
     });
 
     // Routes for Jabatan
@@ -74,4 +83,11 @@ Route::middleware(['auth'])->group(function() {
     Route::put('/admin/penilaian/{kode_penilaian}', [PenilaianController::class, 'update']);
     Route::get('/admin/penilaian/delete/{kode_penilaian}', [PenilaianController::class, 'delete']);
     Route::delete('/admin/penilaian/delete/{kode_penilaian}', [PenilaianController::class, 'destroy']);
+
+    Route::get('/admin/penilaian/proses/{kode_penilaian}', [PenilaianController::class, 'penilaian']);
+    Route::post('/admin/penilaian/proses/hitung', [PenilaianController::class, 'hasilpenilaian']);
+
+    Route::get('/admin/penilaian/hasil/{kode_penilaian}', [DetailPenilaianController::class, 'index']);
+    Route::get('/admin/penilaian/cetak/hasil/{kode_penilaian}', [DetailPenilaianController::class, 'cetak']);
+
 });

@@ -9,5 +9,5 @@ class BobotNilai extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['keterangan','slug','minNilai','grade'];
+    protected $guarded = ['id'];
 }

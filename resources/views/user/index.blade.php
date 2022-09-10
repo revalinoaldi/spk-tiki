@@ -38,14 +38,18 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
+                @bothtop
                   <a href="/admin/user/input" class="btn btn-primary" style="padding-top: 10px;"><i class="fa fa-plus-circle"></i> Input Data</a>
+                @endbothtop
                   <thead>
                   <tr>
                     <th>No.</th>
                     <th>Nama User</th>
                     <th>Jabatan</th>
                     <th>Status Karyawan</th>
+                    @bothtop
                     <th>Action</th>
+                    @endbothtop
                   </tr>
                   </thead>
                   <tbody>
@@ -58,13 +62,16 @@
                         @if($data->status_karyawan == '1')
                         Aktif
                         @else
-                        Tidak Aktif                       
+                        Tidak Aktif
                         @endif</td>
+
+                    @bothtop
                     <td>
                         <a href="/admin/user/detail/{{ $data->username }}" type="button" class="btn btn-primary">Detail Data</a>
                         <a href="/admin/user/edit/{{ $data->username }}" type="button" class="btn btn-success">Edit Data</a>
                         <a href="/admin/user/delete/{{ $data->username }}" type="button" class="btn btn-danger">Hapus Data</a>
                     </td>
+                    @endbothtop
                   </tr>
                   @endforeach
                   </tbody>
@@ -74,7 +81,9 @@
                     <th>Nama User</th>
                     <th>Jabatan</th>
                     <th>Status Karyawan</th>
+                    @bothtop
                     <th>Action</th>
+                    @endbothtop
                   </tr>
                   </tfoot>
                 </table>
@@ -83,7 +92,7 @@
             </div>
             <!-- /.card -->
 
-           
+
             </div>
             <!-- /.card -->
           </div>

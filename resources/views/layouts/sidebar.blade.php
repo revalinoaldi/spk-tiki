@@ -1,7 +1,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
-        
+
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
@@ -15,22 +15,11 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="/lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="/lte/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin</a>
-                    </div>
-                </div>
-
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
+                        <a href="#" class="d-block">{{ auth()->user()->nama_user}}</a>
+                        <span class="text-muted">{{ auth()->user()->jabatan->jabatan }}</span>
                     </div>
                 </div>
 
@@ -48,21 +37,29 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/karyawan" class="nav-link">
+                                <a href="/admin/user" class="nav-link">
                                     <i class="nav-icon fa fa-users"></i>
                                     <p>
                                         Data Karyawan
                                     </p>
                                 </a>
                             </li>
+                            @supervisor
                             <li class="nav-item">
-                                <a href="/admin/#" class="nav-link">
+                                <a href="/admin/penilaian" class="nav-link">
+                                    <i class="nav-icon fa fa-star-half-alt"></i>
+                                  <p>Penilaian</p>
+                                </a>
+                            </li>
+                            @endsupervisor
+                            {{-- <li class="nav-item">
+                                <a href="/admin/penilaian/hasil/" class="nav-link">
                                     <i class="nav-icon fa fa-file-alt"></i>
                                     <p>
                                         Laporan Penilaian
                                     </p>
                                 </a>
-                            </li>
+                            </li> --}}
                             @direktur
                               <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -85,8 +82,14 @@
                                       <p>Jabatan</p>
                                     </a>
                                   </li>
+                                  <li class="nav-item">
+                                    <a href="/admin/penilaian" class="nav-link">
+                                        <i class="nav-icon fa fa-star-half-alt"></i>
+                                      <p>Penilaian</p>
+                                    </a>
+                                </li>
                                 </ul>
-                              </li>             
+                              </li>
                             @enddirektur
                             @manager
                             <li class="nav-item">
@@ -119,6 +122,8 @@
                               </ul>
                             </li>
                             @endmanager
+
+
                             <li class="nav-item">
                                 <form action="/logout" method="POST" id="formLogout">
                                     @csrf

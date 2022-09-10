@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nik', 16);
             $table->string('nama_user', 100);
             $table->string('username', 100)->unique()->required();
             $table->string('email', 125)->unique()->required();
@@ -25,8 +26,8 @@ return new class extends Migration
             $table->unsignedBigInteger('jabatan_id');
             $table->timestamps($precision = 0);
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
-            $table->enum('status_karyawan', ['1', '0']);
-            $table->string('nik', 16);
+            $table->enum('status_karyawan', [1, 0])->default(1);
+
 
             $table->foreign('jabatan_id')->references('id')->on('jabatans');
         });

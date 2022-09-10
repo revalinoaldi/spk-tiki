@@ -21,4 +21,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Jabatan::class);
     }
+
+    public function detailpenilaian()
+    {
+        return $this->hasMany(DetailPenilaian::class);
+    }
 }

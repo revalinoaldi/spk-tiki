@@ -32,8 +32,8 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password'),
                 'jabatan_id' => 2,
                 'jenis_kelamin' => 'Laki-Laki',
-                'status_karyawan' => '1',
-                'nik' => 'hit_nik'
+                'status_karyawan' => 1,
+                'nik' => mt_rand(1000000000, 9999999999)
             ],
             [
                 'nama_user' => 'Nia Dwi Lestari',
@@ -42,12 +42,23 @@ class UserSeeder extends Seeder
                 'alamat' => 'Bekasi',
                 'no_telp' => '8159878369',
                 'password' => Hash::make('password'),
-                'jabatan_id' => 2,
+                'jabatan_id' => 3,
                 'jenis_kelamin' => 'Perempuan',
-                'status_karyawan' => '0',
-                'nik' => 'hit_nik'
-            ]
-
+                'status_karyawan' => 1,
+                'nik' => mt_rand(1000000000, 9999999999)
+            ],
+            [
+                'nama_user' => 'Opal Irsaka',
+                'username' => 'opalirs',
+                'email' => 'opalirs@gmail.com',
+                'alamat' => 'Bekasi',
+                'no_telp' => '8159878369',
+                'password' => Hash::make('password'),
+                'jabatan_id' => 4,
+                'jenis_kelamin' => 'Perempuan',
+                'status_karyawan' => 1,
+                'nik' => mt_rand(1000000000, 9999999999)
+            ],
         ];
         foreach ($data as $value){
             User::insert([
@@ -58,13 +69,12 @@ class UserSeeder extends Seeder
                 'no_telp' => $value['no_telp'],
                 'password' => $value['password'],
                 'jabatan_id' => $value['jabatan_id'],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
                 'jenis_kelamin' => $value['jenis_kelamin'],
                 'status_karyawan' => $value['status_karyawan'],
                 'nik' => $value['nik']
-
             ]);
         }
+
+        User::factory(4)->create();
     }
 }

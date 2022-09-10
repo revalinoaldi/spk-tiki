@@ -30,6 +30,10 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+            @if (session('notif'))
+            {!! session('notif') !!}
+            @endif
+
           <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -58,8 +62,10 @@
                     <td>{{ $data->periode_bulan }}</td>
                     <td>{{ $data->periode_tahun }}</td>
                     <td class="col-sm-3">
-                        <a href="/admin/penilaian/edit/{{ $data->kode_penilaian }}" type="button" class="btn btn-success">Edit Data</a>
-                        <a href="/admin/penilaian/delete/{{ $data->kode_penilaian }}" type="button" class="btn btn-danger">Hapus Data</a>
+                        <a href="/admin/penilaian/edit/{{ $data->kode_penilaian }}" type="button" class="btn btn-success btn-sm">Edit Data</a>
+                        <a href="/admin/penilaian/delete/{{ $data->kode_penilaian }}" type="button" class="btn btn-danger btn-sm">Hapus Data</a>
+                        <a href="/admin/penilaian/proses/{{ $data->kode_penilaian }}" type="button" class="btn btn-info btn-sm">Proses Penilaian</a>
+                        <a href="/admin/penilaian/hasil/{{ $data->kode_penilaian }}" type="button" class="btn btn-primary btn-sm">Lihat Penilaian</a>
                     </td>
                   </tr>
                   @endforeach
@@ -80,7 +86,7 @@
             </div>
             <!-- /.card -->
 
-           
+
             </div>
             <!-- /.card -->
           </div>

@@ -20,10 +20,6 @@ return new class extends Migration
             $table->float('total_skor');
             $table->float('sub_skor');
             $table->timestamps($precision = 0);
-            $table->integer('bobot');
-            $table->float('bobotInFloat');
-            $table->integer('target');
-
             $table->foreign('detail_penilaian_id')->references('id')->on('detail_penilaians');
             $table->foreign('kriteria_nilai_id')->references('id')->on('kriteria_nilais');
 

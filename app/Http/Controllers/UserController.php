@@ -16,8 +16,8 @@ class UserController extends Controller
     }
 
     public function detail($username){
-        
-        $user = User::where('username', $username)->with('jabatan')->get();   
+
+        $user = User::where('username', $username)->with('jabatan')->get();
         return view('user/detail', ['user' => $user]);
     }
 
@@ -26,7 +26,7 @@ class UserController extends Controller
         $jabatan = Jabatan::select('id', 'jabatan')->get();
         return view('user/create', ['jabatan' => $jabatan]);
     }
-    
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -79,7 +79,7 @@ class UserController extends Controller
             'nik' => 'required'
         ]);
 
-        $user = User::where('username', $username)->first(); 
+        $user = User::where('username', $username)->first();
         $user->update([
             'nama_user' => $request->input('nama_user'),
             'username' => $request->input('username'),
@@ -103,9 +103,9 @@ class UserController extends Controller
     }
 
     public function edit($username){
-        
-        $user = User::where('username', $username)->with('jabatan')->first();  
-        $jabatan = Jabatan::where('id', '!=', $user->jabatan_id)->get(['id', 'jabatan']);   
+
+        $user = User::where('username', $username)->with('jabatan')->first();
+        $jabatan = Jabatan::where('id', '!=', $user->jabatan_id)->get(['id', 'jabatan']);
         return view('user/edit', ['user' => $user, 'jabatan' => $jabatan]);
     }
 

@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class JabatanSeeder extends Seeder
 {
-    
+
 
     public function run()
     {
@@ -23,15 +23,12 @@ class JabatanSeeder extends Seeder
             ['jabatan' => 'Manager Ops','slug' => 'manager-operasional'],
             ['jabatan' => 'Supervisor','slug' => 'supervisor'],
             ['jabatan' => 'Karyawan','slug' => 'karyawan']
-            
+
         ];
         foreach ($data as $value){
             Jabatan::insert([
                 'jabatan' => $value['jabatan'],
-                'slug' => $value['slug'],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-    
+                'slug' => $value['slug']
             ]);
         }
     }

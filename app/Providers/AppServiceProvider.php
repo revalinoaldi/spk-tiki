@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
             return @auth()->user() && auth()->user()->jabatan->slug == 'direktur';
         });
 
+        Blade::if('bothtop', function () {
+            return @auth()->user() && (auth()->user()->jabatan->slug == 'direktur' || auth()->user()->jabatan->slug == 'manager-operasional');
+        });
+
         Gate::define('access', function(User $user, $type) {
             return ($user->id == $type);
         });
